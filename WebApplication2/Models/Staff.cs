@@ -7,6 +7,7 @@ using System.Web;
 
 namespace WebApplication2.Models
 {
+    [Table("Staff_tbl")]
     public class Staff
     {
         [Key]
@@ -14,17 +15,16 @@ namespace WebApplication2.Models
         public string Fname { get; set; }
         public string Lname { get; set; }
         public string Position{ get; set; }
-        public date DOB { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime DOB { get; set; }
         public int Salary { get; set; }
          
         [ForeignKey("Branch")]
-        public int BranchRef { get; set; }
-        public Branch Branch_BranchNo { get; set; }
+        public string BranchRef { get; set; }
+        public virtual Branch Branch_BranchNo { get; set; }
 
 
 
-
-        
-
-    }
+   }
 }

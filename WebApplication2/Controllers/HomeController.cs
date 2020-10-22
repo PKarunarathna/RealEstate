@@ -3,16 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
+
+        // GET: Home
+
+        private RealEstateContext objDataContext = new RealEstateContext ();
         public ActionResult Index()
         {
-            return View();
+            List<Staff> AllStaffs = objDataContext.Staffs.ToList();
+            return View(AllStaffs);
         }
-	}
+
+       
+
+
+
+
+
+
+
+
+
+    }
 }

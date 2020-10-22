@@ -7,6 +7,7 @@ using System.Web;
 
 namespace WebApplication2.Models
 {
+    [Table("Rent_tbl")]
     public class Rent
     {
         [Key]
@@ -16,17 +17,18 @@ namespace WebApplication2.Models
         public string Ptype{ get; set; }
         public int Rooms { get; set; }
 
-        [ForeignKey]
-        public int RefRoomNo { get; set; }
+        [ForeignKey("Owner")]
+        public string OwnerRef { get; set; }
+        public virtual Owner OwnerNo { get; set; }
 
         [ForeignKey("Staff")]
-        public int StaffRef { get; set; }
-        public Staff RefStaffNo { get; set; }
+        public string StaffRef { get; set; }
+        public  Staff StaffNo { get; set; }
 
         [ForeignKey("Branch")]
-        public int BranchRef { get; set; }
-        public Branch RefBranchNo { get; set; }
-
+        public string BranchRef { get; set; }
+        public virtual Branch BranchNo { get; set; }
+        
         public int Rent1 { get; set; }
 
     }

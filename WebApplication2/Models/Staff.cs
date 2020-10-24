@@ -14,17 +14,15 @@ namespace WebApplication2.Models
         public string StaffNo { get; set; }
         public string Fname { get; set; }
         public string Lname { get; set; }
-        public string Position{ get; set; }
+        public string Position { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
         public int Salary { get; set; }
-         
+
+
         [ForeignKey("Branch")]
         public string BranchRef { get; set; }
-        public virtual Branch Branch_BranchNo { get; set; }
-
-
-
-   }
+        public virtual Branch Branch { get; set; }
+    }
 }

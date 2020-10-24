@@ -14,22 +14,23 @@ namespace WebApplication2.Models
         public string PropertyNo { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
-        public string Ptype{ get; set; }
+        public string Ptype { get; set; }
         public int Rooms { get; set; }
 
         [ForeignKey("Owner")]
         public string OwnerRef { get; set; }
-        public virtual Owner OwnerNo { get; set; }
+        public virtual Owner Owner { get; set; }
 
         [ForeignKey("Staff")]
         public string StaffRef { get; set; }
-        public  Staff StaffNo { get; set; }
+        public virtual Staff Staff { get; set; }
 
         [ForeignKey("Branch")]
         public string BranchRef { get; set; }
-        public virtual Branch BranchNo { get; set; }
-        
+        public virtual Branch Branch { get; set; }
+
         public int Rent1 { get; set; }
 
     }
+
 }

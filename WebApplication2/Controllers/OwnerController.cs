@@ -21,6 +21,7 @@ namespace WebApplication2.Controllers
         //Create action to view the insert form
         public ActionResult Create()
         {
+            
             return View();
         }
 
@@ -32,6 +33,63 @@ namespace WebApplication2.Controllers
             objDataContext.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(string ownerno)
+        {
+           Owner owner = objDataContext.Owners
+                .SingleOrDefault(x => x.OwnerNo == ownerno);
+            return View(owner);
+        }
+
+
+
+        public ActionResult Update(string ownerno)
+        {
+            //ViewBag.Details = new SelectList(objDataContext.Rents, "PropertyNo", "Ptype");
+            Owner owner = objDataContext.Owners
+               .SingleOrDefault(x => x.OwnerNo == ownerno);
+            return View(owner);
+        }
+
+        [HttpPost]
+        public ActionResult Update(string ownerno, Owner UpdatedOwner)
+        {
+            Owner owner = objDataContext.Owners
+                .SingleOrDefault(x => x.OwnerNo == ownerno);
+           owner = UpdatedOwner;
+            objDataContext.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+
+
+        public ActionResult Delete(string ownerno)
+        {
+            Owner owner = objDataContext.Owners
+               .SingleOrDefault(x => x.OwnerNo == ownerno);
+            return View(owner);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteRent(string ownerno)
+        {
+            Owner owner = objDataContext.Owners
+               .SingleOrDefault(x => x.OwnerNo == ownerno);
+            objDataContext.Owners.Remove(owner);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

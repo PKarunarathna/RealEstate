@@ -14,8 +14,8 @@ namespace WebApplication2.Controllers
         
         public ActionResult Index()
         {
-            List<Branch> branches = objDataContext.Branches.ToList();
-            return View(branches);
+            List<Branch> Allbranches = objDataContext.Branches.ToList();
+            return View(Allbranches);
         }
 
         //Insert branch details
@@ -32,6 +32,74 @@ namespace WebApplication2.Controllers
             objDataContext.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+
+
+
+        public ActionResult Details(string branchno)
+        {
+           Branch branch = objDataContext.Branches
+                .SingleOrDefault(x => x.BranchNo == branchno);
+            return View(branch);
+        }
+
+
+
+        public ActionResult Update(string branchno)
+        {
+            ViewBag.Details = new SelectList(objDataContext.Rents, "BranchNo", "City");
+            Branch branch = objDataContext.Branches
+               .SingleOrDefault(x => x.BranchNo == branchno);
+            return View(branch);
+        }
+
+        [HttpPost]
+        public ActionResult Update(string branchno, Branch Updatedbranch)
+        {
+            Branch branch = objDataContext.Rents
+                 .SingleOrDefault(x => x.BranchNo == branchno);
+            branch = Updatedbranch;
+            objDataContext.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+
+
+        public ActionResult Delete(string branchno)
+        {
+            Branch branch = objDataContext.Branches
+               .SingleOrDefault(x => x.BranchNo == branchno);
+            return View(branch);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteBranch(string branchno)
+        {
+            Branch branch = objDataContext.Branches
+               .SingleOrDefault(x => x.BranchNo == branchno);
+            objDataContext.Branches.Remove(branch);
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

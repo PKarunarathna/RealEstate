@@ -20,16 +20,72 @@ namespace WebApplication2.Controllers
         //Create action to view the insert form
         public ActionResult Create()
         {
+           
             return View();
         }
         //Create action to insert new rent details to table
         [HttpPost]
         public ActionResult Create(Rent rent)
         {
+            ViewBag.branchDetails = objDataContext.Branches;
+            ViewBag.ownerDetails = objDataContext.Owners;
+            ViewBag.stafftDetails = objDataContext.Staffs;
             objDataContext.Rents.Add(rent);
             objDataContext.SaveChanges();
+            return RedirectToAction("Index"); 
+        }
+
+
+
+        public ActionResult Details(string pptyno)
+        {
+            Rent rent = objDataContext.Rents
+                .SingleOrDefault(x => x.PropertyNo == pptyno);
+            return View(rent);
+        }
+
+
+
+        public ActionResult Update(string pptyno)
+        {
+            ViewBag.Details = new SelectList(objDataContext.Rents, "PropertyNo", "Ptype");
+            Rent rent = objDataContext.Rents
+                 .SingleOrDefault(x => x.PropertyNo == pptyno);
+            return View(rent);
+        }
+
+        [HttpPost]
+        public ActionResult Update(string pptyno,Rent UpdatedRent)
+        {
+            Rent rent = objDataContext.Rents
+                 .SingleOrDefault(x => x.PropertyNo == pptyno);
+            rent = UpdatedRent;
+            objDataContext.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
+
+
+
+        public ActionResult Delete(string pptyno)
+        {
+            Rent rent = objDataContext.Rents
+                .SingleOrDefault(x => x.PropertyNo == pptyno);
+            return View(rent);
+        }
+
+        [HttpPost,ActionName("Delete")]
+        public ActionResult DeleteRent(string pptyno)
+        {
+            Rent rent = objDataContext.Rents
+                .SingleOrDefault(x => x.PropertyNo == pptyno);
+            objDataContext.Rents.Remove(rent);
             return RedirectToAction("Index");
         }
+
+
+
+
 
     }
 }

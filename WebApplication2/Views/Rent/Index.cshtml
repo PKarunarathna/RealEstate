@@ -1,0 +1,23 @@
+﻿@model List<WebApplication2.Models.Rent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @foreach( Rent  rent in Model)
+        {
+            @Html.ActionLink(rent.PropertyNo, "BuildingInCity",new { @city = rent.City },null)
+            @Html.ActionLink(rent.PropertyNo, "BuildingInCity","Home", new { @city = rent.City }, null)
+        }
+    </div>
+</body>
+</html>

@@ -34,7 +34,50 @@ namespace WebApplication2.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult Details(string staffno)
+        {
+           Staff staff = objDataContext.Staffs
+                .SingleOrDefault(x => x.StaffNo == staffno);
+            return View(staff);
+        }
 
+
+
+        public ActionResult Update(string staffno)
+        {
+            // ViewBag.Details = new SelectList(objDataContext.Rents, "PropertyNo", "Ptype");
+            Staff staff = objDataContext.Staffs
+                 .SingleOrDefault(x => x.StaffNo == staffno);
+            return View(staff);
+        }
+
+        [HttpPost]
+        public ActionResult Update(string staffno, Staff UpdatedStaff)
+        {
+            Staff staff = objDataContext.Staffs
+                   .SingleOrDefault(x => x.StaffNo == staffno);
+            staff= UpdatedStaff;
+            objDataContext.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        public ActionResult Delete(string staffno)
+        {
+            Staff staff = objDataContext.Staffs
+                  .SingleOrDefault(x => x.StaffNo == staffno);
+            return View(staff);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteRent(string staffno)
+        {
+            Staff staff = objDataContext.Staffs
+                 .SingleOrDefault(x => x.StaffNo == staffno);
+           
+            objDataContext.Staffs.Remove(staff);
+            return RedirectToAction("Index");
+        }
 
 
 

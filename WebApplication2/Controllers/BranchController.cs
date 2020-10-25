@@ -48,7 +48,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Update(string branchno)
         {
-            ViewBag.Details = new SelectList(objDataContext.Rents, "BranchNo", "City");
+            ViewBag.Details = new SelectList(objDataContext.Branches, "BranchNo", "City");
             Branch branch = objDataContext.Branches
                .SingleOrDefault(x => x.BranchNo == branchno);
             return View(branch);
@@ -57,7 +57,7 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public ActionResult Update(string branchno, Branch Updatedbranch)
         {
-            Branch branch = objDataContext.Rents
+            Branch branch = objDataContext.Branches
                  .SingleOrDefault(x => x.BranchNo == branchno);
             branch = Updatedbranch;
             objDataContext.SaveChanges();

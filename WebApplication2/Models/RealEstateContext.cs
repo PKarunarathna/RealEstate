@@ -14,9 +14,6 @@ namespace WebApplication2.Models
         public DbSet<Rent> Rents { get; set; }
         public DbSet<Branch> Branches { get; set; }
 
-        internal void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

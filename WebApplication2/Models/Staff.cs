@@ -12,7 +12,10 @@ namespace WebApplication2.Models
     {
         [Key]
         public string StaffNo { get; set; }
+        [Display(Name = "First Name")]
         public string Fname { get; set; }
+
+        [Display(Name = "Last Name")]
         public string Lname { get; set; }
         public string Position { get; set; }
 
@@ -20,7 +23,7 @@ namespace WebApplication2.Models
         public DateTime DOB { get; set; }
         public int Salary { get; set; }
 
-
+        [Display(Name = "Branch")]
         [ForeignKey("Branch")]
         public string BranchRef { get; set; }
         public virtual Branch Branch { get; set; }

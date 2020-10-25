@@ -12,9 +12,13 @@ namespace WebApplication2.Models
     {
         [Key]
         public string OwnerNo { get; set; }
+
+        [Display(Name = "First Name")]
         public string Fname { get; set; }
+        [Display(Name = "Last Name")]
         public string Lname { get; set; }
         public string Address { get; set; }
+        [Display(Name = "Telephone Number")]
         public string TelNo { get; set; }
     }
 }

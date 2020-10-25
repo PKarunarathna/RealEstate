@@ -23,6 +23,8 @@ namespace WebApplication2.Controllers
         //Create action to view the insert form
         public ActionResult Create()
         {
+            ViewBag.BranchDetails = objDataContext.Branches;
+            //ViewBag.BranchDetails = new SelectList(objDataContext.Staffs,"BranchNo","City");
             return View();
         }
         //Create action to insert new staff details to table

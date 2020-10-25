@@ -46,3 +46,5 @@ F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\obj\Debug\WebApplicat
 F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\obj\Debug\WebApplication2.pdb
 F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\bin\Microsoft.Web.Infrastructure.dll
 F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\obj\Debug\WebApplication2.csprojResolveAssemblyReference.cache
+F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\obj\Debug\WebApplication2.Migrations.Staff_tbl.resources
+F:\EcommerceProj\E-commerce-App\RealEstate\WebApplication2\obj\Debug\WebApplication2.csproj.GenerateResource.Cache

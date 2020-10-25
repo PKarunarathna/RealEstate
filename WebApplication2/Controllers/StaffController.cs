@@ -47,7 +47,7 @@ namespace WebApplication2.Controllers
 
         public ActionResult Update(string staffno)
         {
-            // ViewBag.Details = new SelectList(objDataContext.Rents, "PropertyNo", "Ptype");
+            ViewBag.BranchDetails = objDataContext.Branches;
             Staff staff = objDataContext.Staffs
                  .SingleOrDefault(x => x.StaffNo == staffno);
             return View(staff);

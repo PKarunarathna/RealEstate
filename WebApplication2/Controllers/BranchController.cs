@@ -11,12 +11,13 @@ namespace WebApplication2.Controllers
     {
         private RealEstateContext objDataContext = new RealEstateContext();
         // GET: Branch
-        
+
         public ActionResult Index()
         {
-            List<Branch> Allbranches = objDataContext.Branches.ToList();
-            return View(Allbranches);
+            List<Branch> AllBranches = objDataContext.Branches.ToList();
+            return View(AllBranches);
         }
+
 
         //Insert branch details
         //Create action to view the insert form
@@ -36,11 +37,9 @@ namespace WebApplication2.Controllers
 
 
 
-
-        public ActionResult Details(string branchno)
+            public ActionResult Details(string branchno)
         {
-           Branch branch = objDataContext.Branches
-                .SingleOrDefault(x => x.BranchNo == branchno);
+           Branch branch = objDataContext.Branches.SingleOrDefault(x => x.BranchNo == branchno);
             return View(branch);
         }
 

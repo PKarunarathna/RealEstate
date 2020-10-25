@@ -141,7 +141,6 @@
     <Content Include="Views\Owner\Delete.cshtml" />
     <Content Include="Views\Rent\Delete.cshtml" />
     <Content Include="Views\Branch\Create.cshtml" />
-    <Content Include="Views\Branch\Details.cshtml" />
     <Content Include="Views\Branch\Update.cshtml" />
     <Content Include="Views\Branch\Delete.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
@@ -149,6 +148,10 @@
     <Content Include="Views\Staff\Details.cshtml" />
     <Content Include="Views\Staff\Update.cshtml" />
     <Content Include="Views\Staff\Delete.cshtml" />
+    <Content Include="Views\Branch\Details.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\BuildingInCity.cshtml" />
+    <Content Include="Views\Home\StaffDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,9 +159,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Home\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010250616066_Staff_tbl.resx">
       <DependentUpon>202010250616066_Staff_tbl.cs</DependentUpon>

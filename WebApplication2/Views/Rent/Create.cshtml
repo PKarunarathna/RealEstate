@@ -21,6 +21,18 @@
             <h4>Rent</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PropertyNo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PropertyNo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PropertyNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Street, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -56,7 +68,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.OwnerRef, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.OwnerRef, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.OwnerRef, new SelectList(ViewBag.ownerDetails, "OwnerNo", "OwnerNo"), "Select the OwnerNo")
                     @Html.ValidationMessageFor(model => model.OwnerRef, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -64,7 +76,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.StaffRef, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.StaffRef, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.StaffRef, new SelectList(ViewBag.stafftDetails, "StaffNo", "StaffNo"), "Select the StaffNo")
                     @Html.ValidationMessageFor(model => model.StaffRef, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -72,7 +84,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.BranchRef, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BranchRef, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.DropDownListFor(model => model.BranchRef, new SelectList(ViewBag.branchDetails, "BranchNo", "BranchNo"), "Select the branch")
                     @Html.ValidationMessageFor(model => model.BranchRef, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -84,6 +96,7 @@
                     @Html.ValidationMessageFor(model => model.Rent1, "", new { @class = "text-danger" })
                 </div>
             </div>
+
     
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">

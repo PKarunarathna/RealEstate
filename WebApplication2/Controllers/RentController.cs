@@ -20,19 +20,18 @@ namespace WebApplication2.Controllers
         //Create action to view the insert form
         public ActionResult Create()
         {
-           
+            ViewBag.branchDetails = objDataContext.Branches;
+            ViewBag.ownerDetails = objDataContext.Owners;
+            ViewBag.stafftDetails = objDataContext.Staffs;
             return View();
         }
         //Create action to insert new rent details to table
         [HttpPost]
         public ActionResult Create(Rent rent)
         {
-            ViewBag.branchDetails = objDataContext.Branches;
-            ViewBag.ownerDetails = objDataContext.Owners;
-            ViewBag.stafftDetails = objDataContext.Staffs;
             objDataContext.Rents.Add(rent);
             objDataContext.SaveChanges();
-            return RedirectToAction("Index"); 
+            return RedirectToAction("Index");
         }
 
 
